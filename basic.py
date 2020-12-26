@@ -26,7 +26,7 @@ while count < len(movies):
 
 # Store lists within lists
 print("==== List within list ====")
-movies = ["the Holy Grail", 1975, "Terry Jones & Terry Gilliam", 91, ["Graham Chapman", ["Michael Pain", "John Cleese", "terry Gilliam", "Eric Idle", "Terry Jones"]]]
+movies = ["the Holy Grail", 1975, "Terry Jones & Terry Gilliam", 91, ["Graham Chapman", ["Michael Pain", ["Single", 37, "Germany"], "John Cleese", "terry Gilliam", "Eric Idle", "Terry Jones"]]]
 print(movies[4][1][3])
 
 print("==== For Loops List Within List ====")
@@ -35,9 +35,13 @@ for each_item in movies:
 		for nested_item in each_item:
 			if (isinstance(nested_item, list)):
 				for core_item in nested_item:
-					print(core_item)
+					if(isinstance(core_item, list)):
+						for deepest_item in core_item:
+							print( "    ", deepest_item)
+					else:
+						print("   ", core_item)
 			else:
-				print(nested_item)
+				print("  ", nested_item)
 	else:
-		print(each_item)
+		print(" ",each_item)
 
